@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Wahidlabs menyediakan solusi AI Automation terbaik. Dapatkan Script Python, Video Tutorial, dan Ebook strategi AI untuk bisnis Anda.">
+    <meta name="keywords" content="AI Automation, Script AI, Belajar AI, Wahidlabs, Video Tutorial AI, Ebook Bisnis">
+    <meta name="author" content="Wahidlabs">
+    
+    <title>Wahidlabs | Solusi AI Automation & Digital Products</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts (Inter & Orbitron for Tech feel) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Config for Futuristic Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            primary: '#6366f1', // Indigo
+                            accent: '#8b5cf6', // Violet
+                            glow: '#38bdf8', // Sky Blue
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .text-glow {
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #38bdf8, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Input autofill fix for dark mode */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        input:-webkit-autofill:active{
+            -webkit-box-shadow: 0 0 0 30px #1e293b inset !important;
+            -webkit-text-fill-color: white !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        /* Animation Keyframes defined in CSS instead of JS to prevent SecurityError */
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-bounce-slow {
+            animation: bounce-slow 3s infinite;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-100 font-sans selection:bg-brand-accent selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-card border-none bg-slate-900/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="font-tech text-2xl font-bold tracking-wider text-white">
+                        WAHID<span class="text-brand-accent">LABS</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-brand-glow transition px-3 py-2 rounded-md text-sm font-medium">Beranda</a>
+                        <a href="https://api.whatsapp.com/send/?phone=6289660237807&text=Halo+Wahidlabs%2C+saya+tertarik+dengan+produk+AI+Anda.&type=phone_number&app_absent=0" class="hover:text-brand-glow transition px-3 py-2 rounded-md text-sm font-medium">Produk AI</a>
+                        <a href="https://api.whatsapp.com/send/?phone=6289660237807&text=Halo+Wahidlabs%2C+saya+tertarik+dengan+produk+AI+Anda.&type=phone_number&app_absent=0" class="hover:text-brand-glow transition px-3 py-2 rounded-md text-sm font-medium">Pembayaran</a>
+                        <a href="https://api.whatsapp.com/send/?phone=6289660237807&text=Halo+Wahidlabs%2C+saya+tertarik+dengan+produk+AI+Anda.&type=phone_number&app_absent=0" class="bg-brand-primary hover:bg-brand-accent text-white px-5 py-2 rounded-full text-sm font-medium transition shadow-lg shadow-brand-primary/30">Daftar Sekarang</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-slate-900 border-t border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-800">Beranda</a>
+                <a href="https://api.whatsapp.com/send/?phone=6289660237807&text=Halo+Wahidlabs%2C+saya+tertarik+dengan+produk+AI+Anda.&type=phone_number&app_absent=0" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800">Produk AI</a>
+                <a href="https://api.whatsapp.com/send/?phone=6289660237807&text=Halo+Wahidlabs%2C+saya+tertarik+dengan+produk+AI+Anda.&type=phone_number&app_absent=0" class="block px-3 py-2 rounded-md text-base font-medium text-brand-glow hover:bg-gray-800">Daftar & Beli</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 bg-hero-pattern bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/90 via-brand-dark/80 to-brand-dark"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-fade-in-up">
+                <span class="inline-block py-1 px-3 rounded-full bg-brand-primary/20 border border-brand-primary/50 text-brand-glow text-xs font-semibold tracking-wide mb-4 uppercase">
+                    Masa Depan Bisnis Ada Di Sini
+                </span>
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 font-tech">
+                    Otomatisasi Bisnis Dengan <br>
+                    <span class="gradient-text text-glow">Kecerdasan Buatan</span>
+                </h1>
+                <p class="mt-4 text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+                    Tingkatkan efisiensi kerja 10x lipat. Dapatkan akses ke script eksklusif, tutorial mendalam, dan ebook strategi AI Automation dari Wahidlabs.
+                </p>
+                <div class="flex justify-center gap-4">
+                    <a href="https://api.whatsapp.com/send/?phone=6289660237807&text=Halo+Wahidlabs%2C+saya+tertarik+dengan+produk+AI+Anda.&type=phone_number&app_absent=0" class="bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-violet-500/30 transition transform hover:-translate-y-1">
+                        Akses Produk Sekarang
+                    </a>
+                    <a href="#https://api.whatsapp.com/send/?phone=6289660237807&text=Halo+Wahidlabs%2C+saya+tertarik+dengan+produk+AI+Anda.&type=phone_number&app_absent=0" class="glass-card text-white font-semibold py-4 px-8 rounded-full hover:bg-white/10 transition">
+                        Pelajari Lebih Lanjut
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute bottom-0 w-full h-24 bg-gradient-to-t from-brand-dark to-transparent"></div>
+    </section>
+
+    <!-- Product Section -->
+    <section id="products" class="py-20 bg-brand-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold font-tech text-white mb-4">Produk Unggulan</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-brand-glow to-brand-accent mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-400">Tools dan panduan lengkap untuk memulai perjalanan automasi Anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="glass-card rounded-2xl p-8 hover:border-brand-glow/50 transition duration-300 transform hover:-translate-y-2 group relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl group-hover:bg-blue-500/40 transition"></div>
+                    <div class="w-14 h-14 bg-blue-900/50 rounded-xl flex items-center justify-center mb-6 text-blue-400 border border-blue-500/30">
+                        <i class="fas fa-code text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">AI Automation Scripts</h3>
+                    <p class="text-gray-400 text-sm mb-6">
+                        Kumpulan kode Python & NodeJS siap pakai untuk automasi WhatsApp, Email Marketing, dan Data Scraping. Tanpa coding dari nol.
+                    </p>
+                    <ul class="text-gray-500 text-sm mb-6 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Plug & Play</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Update Berkala</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send/?phone=6289660237807&text=Halo+Wahidlabs%2C+saya+tertarik+dengan+script+AI+Anda.&type=phone_number&app_absent=0" onclick="selectProduct('Script')" class="block text-center w-full py-2 rounded-lg border border-blue-500/50 text-blue-400 hover:bg-blue-500 hover:text-white transition">Pilih Script</a>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="glass-card rounded-2xl p-8 hover:border-purple-500/50 transition duration-300 transform hover:-translate-y-2 group relative overflow-hidden ring-1 ring-purple-500/30 shadow-lg shadow-purple-900/20">
+                    <div class="absolute top-0 right-0 bg-purple-600 text-xs font-bold px-3 py-1 rounded-bl-lg text-white">TERLARIS</div>
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl group-hover:bg-purple-500/40 transition"></div>
+                    <div class="w-14 h-14 bg-purple-900/50 rounded-xl flex items-center justify-center mb-6 text-purple-400 border border-purple-500/30">
+                        <i class="fas fa-video text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Video Tutorial Mastery</h3>
+                    <p class="text-gray-400 text-sm mb-6">
+                        Panduan visual langkah demi langkah membangun sistem automasi AI. Dari instalasi environment hingga deployment server.
+                    </p>
+                    <ul class="text-gray-500 text-sm mb-6 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> 10+ Jam Konten</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Studi Kasus Nyata</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send/?phone=6289660237807&text=Halo+Wahidlabs%2C+saya+tertarik+dengan+tutorial+AI+Anda.&type=phone_number&app_absent=0" onclick="selectProduct('Video')" class="block text-center w-full py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-700 transition shadow-lg shadow-purple-500/25">Pilih Tutorial</a>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="glass-card rounded-2xl p-8 hover:border-pink-500/50 transition duration-300 transform hover:-translate-y-2 group relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-pink-500/20 rounded-full blur-3xl group-hover:bg-pink-500/40 transition"></div>
+                    <div class="w-14 h-14 bg-pink-900/50 rounded-xl flex items-center justify-center mb-6 text-pink-400 border border-pink-500/30">
+                        <i class="fas fa-book-open text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Premium AI Ebook</h3>
+                    <p class="text-gray-400 text-sm mb-6">
+                        Buku elektronik berisi strategi fundamental, logic building, dan cara memonetisasi skill automasi Anda di pasar global.
+                    </p>
+                    <ul class="text-gray-500 text-sm mb-6 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Format PDF High Quality</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-2"></i> Akses Seumur Hidup</li>
+                    </ul>
+                    <a href="https://api.whatsapp.com/send/?phone=6289660237807&text=Halo+Wahidlabs%2C+saya+tertarik+dengan+ebook+AI+Anda.&type=phone_number&app_absent=0" onclick="selectProduct('Ebook')" class="block text-center w-full py-2 rounded-lg border border-pink-500/50 text-pink-400 hover:bg-pink-500 hover:text-white transition">Pilih Ebook</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment & Registration Split Section -->
+    <section class="py-20 bg-slate-900 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-brand-primary/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-brand-accent/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <!-- Registration Form -->
+                <div id="register" class="glass-card rounded-2xl p-8 lg:p-10 shadow-2xl relative z-10 border-t border-white/10">
+                    <h3 class="text-2xl font-bold font-tech mb-2">Formulir Pemesanan</h3>
+                    <p class="text-gray-400 text-sm mb-8">Isi data diri Anda untuk mendapatkan akses produk.</p>
+                    
+                    <form id="waForm" class="space-y-6" onsubmit="sendToWhatsApp(event)">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Nama Lengkap</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-user text-gray-500"></i>
+                                </div>
+                                <input type="text" id="name" name="name" required 
+                                    class="w-full bg-slate-800 border border-slate-600 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition"
+                                    placeholder="Masukkan nama Anda">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Alamat Email</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-envelope text-gray-500"></i>
+                                </div>
+                                <input type="email" id="email" name="email" required 
+                                    class="w-full bg-slate-800 border border-slate-600 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition"
+                                    placeholder="nama@email.com">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">Nomor WhatsApp</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fab fa-whatsapp text-gray-500"></i>
+                                </div>
+                                <input type="tel" id="phone" name="phone" required 
+                                    class="w-full bg-slate-800 border border-slate-600 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition"
+                                    placeholder="08xxxxxxxxxx">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="productSelect" class="block text-sm font-medium text-gray-300 mb-2">Pilih Produk</label>
+                            <select id="productSelect" name="product"
+                                class="w-full bg-slate-800 border border-slate-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-brand-accent transition">
+                                <option value="Semua Bundle (Diskon)" selected>⭐ Semua Bundle (Recommended)</option>
+                                <option value="Script Automation">Script Automation</option>
+                                <option value="Video Tutorial">Video Tutorial</option>
+                                <option value="Ebook Strategy">Ebook Strategy</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-accent hover:to-brand-primary text-white font-bold py-4 rounded-lg shadow-lg shadow-brand-primary/40 transition transform hover:scale-[1.02] flex items-center justify-center gap-2">
+                            <span>Konfirmasi via WhatsApp</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <p class="text-xs text-center text-gray-500 mt-4">Data Anda aman. Anda akan diarahkan ke chat WhatsApp Admin.</p>
+                    </form>
+                </div>
+
+                <!-- Payment Info -->
+                <div class="lg:mt-10">
+                    <div id="payment" class="bg-gradient-to-br from-blue-900/40 to-slate-900 border border-blue-500/20 rounded-2xl p-8 mb-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="p-3 bg-blue-600/20 rounded-lg text-blue-400">
+                                <i class="fas fa-wallet text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Metode Pembayaran</h3>
+                                <p class="text-gray-400 text-sm">Transfer Bank Manual</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+                            <div class="flex justify-between items-center mb-4">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/1200px-Bank_Mandiri_logo_2016.svg.png" alt="Mandiri" class="h-8 brightness-0 invert opacity-80">
+                                <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">Otomatis</span>
+                            </div>
+                            <div class="mb-2">
+                                <p class="text-gray-400 text-xs uppercase tracking-wider">Nomor Rekening</p>
+                                <div class="flex items-center gap-3 mt-1">
+                                    <span id="rekNumber" class="text-2xl font-mono text-white font-bold tracking-widest">123-45-67890-00</span>
+                                    <button onclick="copyRek()" class="text-gray-400 hover:text-white transition" title="Copy">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="text-gray-400 text-sm">a.n. <strong class="text-white">Wahidlabs Official</strong></p>
+                        </div>
+                        
+                        <div class="mt-6 flex gap-3 text-sm text-gray-400">
+                            <i class="fas fa-info-circle mt-1 text-brand-glow"></i>
+                            <p>Silakan selesaikan pembayaran setelah mengisi formulir. Kirim bukti transfer melalui WhatsApp untuk aktivasi produk instan.</p>
+                        </div>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 p-4 rounded-xl bg-slate-800/30">
+                            <i class="fas fa-shield-alt text-brand-glow text-xl"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Garansi Aman</h4>
+                                <p class="text-xs text-gray-500">File bebas virus</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 rounded-xl bg-slate-800/30">
+                            <i class="fas fa-headset text-brand-glow text-xl"></i>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Support 24/7</h4>
+                                <p class="text-xs text-gray-500">Bantuan teknis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0 text-center md:text-left">
+                    <span class="font-tech text-2xl font-bold text-white">WAHID<span class="text-brand-accent">LABS</span></span>
+                    <p class="mt-2 text-gray-500 text-sm max-w-xs mx-auto md:mx-0">
+                        Memberdayakan bisnis digital melalui solusi automasi cerdas dan edukasi teknologi.
+                    </p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="https://instagram.com/wahidlabs" target="_blank" class="text-gray-400 hover:text-pink-500 transition transform hover:scale-110">
+                        <span class="sr-only">Instagram</span>
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="https://wa.me/6289660237807" target="_blank" class="text-gray-400 hover:text-green-500 transition transform hover:scale-110">
+                        <span class="sr-only">WhatsApp</span>
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-500 transition transform hover:scale-110">
+                        <span class="sr-only">LinkedIn</span>
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2024 Wahidlabs. All rights reserved. Designed for AI Revolution.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Direct CTA WhatsApp Float -->
+    <a href="https://wa.me/6289660237807?text=Halo%20Wahidlabs,%20saya%20tertarik%20dengan%20produk%20AI%20Anda." target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg shadow-green-500/40 transition transform hover:scale-110 z-50 flex items-center justify-center w-14 h-14 animate-bounce-slow">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Copy Rekening Function
+        function copyRek() {
+            const rek = document.getElementById('rekNumber').innerText;
+            navigator.clipboard.writeText(rek);
+            alert('Nomor rekening berhasil disalin!');
+        }
+
+        // Product Selection Helper
+        function selectProduct(productName) {
+            const select = document.getElementById('productSelect');
+            // Logic to find closest match or specific value
+            for(let i=0; i<select.options.length; i++) {
+                if(select.options[i].text.includes(productName)) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+
+        // Form Submission to WhatsApp
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const product = document.getElementById('productSelect').value;
+
+            // Format message
+            const message = `Halo Admin Wahidlabs,%0A%0ASaya ingin memesan produk AI:%0A%0A🛍️ *Produk:* ${product}%0A👤 *Nama:* ${name}%0A📧 *Email:* ${email}%0A📱 *No. WA:* ${phone}%0A%0AMohon info total harga dan konfirmasi pembayarannya. Terima kasih!`;
+
+            // Redirect to WhatsApp
+            const waNumber = '6289660237807'; // Converted 089 to 6289
+            const url = `https://wa.me/${waNumber}?text=${message}`;
+            
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
